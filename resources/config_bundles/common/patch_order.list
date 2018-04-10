@@ -94,3 +94,4 @@ ungoogled-chromium/add-flag-to-disable-beforeunload.patch
 ungoogled-chromium/add-flag-to-enable-potentially-annoying-security-features.patch
 
 inbrowser-patches/001-inbrowser-rename.patch
+inbrowser-patches/002-inbrowser-strings.patch
