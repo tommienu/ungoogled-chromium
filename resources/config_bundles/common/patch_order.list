@@ -92,3 +92,5 @@ ungoogled-chromium/disable-network-time-tracker.patch
 ungoogled-chromium/add-flag-for-search-engine-collection.patch
 ungoogled-chromium/add-flag-to-disable-beforeunload.patch
 ungoogled-chromium/add-flag-to-enable-potentially-annoying-security-features.patch
+
+inbrowser-patches/001-inbrowser-rename.patch

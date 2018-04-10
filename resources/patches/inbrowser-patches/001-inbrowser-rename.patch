@@ -1,0 +1,37 @@
+--- a/chrome/app/theme/chromium/BRANDING
++++ b/chrome/app/theme/chromium/BRANDING
+@@ -1,9 +1,10 @@
+-COMPANY_FULLNAME=The Chromium Authors
+-COMPANY_SHORTNAME=The Chromium Authors
+-PRODUCT_FULLNAME=Chromium
+-PRODUCT_SHORTNAME=Chromium
+-PRODUCT_INSTALLER_FULLNAME=Chromium Installer
+-PRODUCT_INSTALLER_SHORTNAME=Chromium Installer
+-COPYRIGHT=Copyright 2017 The Chromium Authors. All rights reserved.
+-MAC_BUNDLE_ID=org.chromium.Chromium
++COMPANY_FULLNAME=The Chromium & InBrowser Authors
++COMPANY_SHORTNAME=The Chromium & InBrowser Authors
++PRODUCT_FULLNAME=InBrowser
++PRODUCT_SHORTNAME=InBrowser
++PRODUCT_INSTALLER_FULLNAME=InBrowser Installer
++PRODUCT_INSTALLER_SHORTNAME=InBrowser Installer
++COPYRIGHT=Copyright 2017 The Chromium & InBrowser Authors. All rights reserved.
++MAC_BUNDLE_ID=org.chromium.InBrowser
+ MAC_CREATOR_CODE=Cr24
++
+--- a/chrome/common/chrome_constants.cc
++++ b/chrome/common/chrome_constants.cc
+@@ -10,11 +10,11 @@
+ #define FPL FILE_PATH_LITERAL
+ 
+ #if defined(OS_MACOSX)
+-#define CHROMIUM_PRODUCT_STRING "Chromium"
++#define CHROMIUM_PRODUCT_STRING "InBrowser"
+ #if defined(GOOGLE_CHROME_BUILD)
+ #define PRODUCT_STRING "Google Chrome"
+ #elif defined(CHROMIUM_BUILD)
+-#define PRODUCT_STRING "Chromium"
++#define PRODUCT_STRING "InBrowser"
+ #else
+ #error Unknown branding
+ #endif

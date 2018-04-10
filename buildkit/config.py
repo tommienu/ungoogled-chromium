@@ -716,6 +716,9 @@ class PatchesConfig(ListConfigFile):
         """
         if self._placeholder:
             return
+
+        for x in self:
+            print(x)
         ensure_empty_dir(path) # Raises FileExistsError, FileNotFoundError
         for relative_path in self:
             destination = path / relative_path
