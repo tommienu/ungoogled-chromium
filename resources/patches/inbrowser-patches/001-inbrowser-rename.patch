@@ -1,6 +1,6 @@
 --- a/chrome/app/theme/chromium/BRANDING
 +++ b/chrome/app/theme/chromium/BRANDING
-@@ -1,9 +1,10 @@
+@@ -1,9 +1,9 @@
 -COMPANY_FULLNAME=The Chromium Authors
 -COMPANY_SHORTNAME=The Chromium Authors
 -PRODUCT_FULLNAME=Chromium
@@ -18,7 +18,6 @@
 +COPYRIGHT=Copyright 2017 The Chromium & InBrowser Authors. All rights reserved.
 +MAC_BUNDLE_ID=org.chromium.InBrowser
  MAC_CREATOR_CODE=Cr24
-+
 --- a/chrome/common/chrome_constants.cc
 +++ b/chrome/common/chrome_constants.cc
 @@ -10,11 +10,11 @@
