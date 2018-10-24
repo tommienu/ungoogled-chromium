@@ -1,0 +1,63 @@
+Index: src/build/config/compiler/BUILD.gn
+===================================================================
+--- src.orig/build/config/compiler/BUILD.gn
++++ src/build/config/compiler/BUILD.gn
+@@ -1339,6 +1339,8 @@ config("default_warnings") {
+       # -Wunused-local-typedefs is broken in gcc,
+       # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=63872
+       cflags += [ "-Wno-unused-local-typedefs" ]
++      cflags += [ "-Wno-unused-private-field" ]
++      cflags += [ "-Wno-unused-const-variable" ]
+ 
+       # Don't warn about "maybe" uninitialized. Clang doesn't include this
+       # in -Wall but gcc does, and it gives false positives.
+@@ -1417,6 +1419,24 @@ config("default_warnings") {
+ 
+         # TODO(hans): https://crbug.com/766891
+         "-Wno-null-pointer-arithmetic",
++
++        # Ignore warnings about MSVC optimization pragmas.
++        # TODO(thakis): Only for no_chromium_code? http://crbug.com/505314
++        "-Wno-ignored-pragma-optimize",
++
++        #
++        "-Wno-unknown-pragmas",
++
++        #
++        "-Wno-unused-function",
++        
++        #
++        "-Wno-unused-private-field",
++        
++        
++        #
++        "-Wno-unused-const-variable",
++
+       ]
+     } else if (use_xcode_clang) {
+       cflags += [
+Index: src/chrome/browser/ui/BUILD.gn
+===================================================================
+--- src.orig/chrome/browser/ui/BUILD.gn
++++ src/chrome/browser/ui/BUILD.gn
+@@ -2969,6 +2969,8 @@ split_static_library("ui") {
+       "views/subtle_notification_view.h",
+       "views/sync/bubble_sync_promo_view.cc",
+       "views/sync/bubble_sync_promo_view.h",
++      "views/sync/one_click_signin_dialog_view.cc",
++      "views/sync/one_click_signin_dialog_view.h",
+       "views/sync/profile_signin_confirmation_dialog_views.cc",
+       "views/sync/profile_signin_confirmation_dialog_views.h",
+       "views/task_manager_view.cc",
+Index: src/mojo/public/cpp/platform/named_platform_channel_win.cc
+===================================================================
+--- src.orig/mojo/public/cpp/platform/named_platform_channel_win.cc
++++ src/mojo/public/cpp/platform/named_platform_channel_win.cc
+@@ -5,6 +5,7 @@
+ #include "mojo/public/cpp/platform/named_platform_channel.h"
+ 
+ #include <windows.h>
++#include <memory>
+ 
+ // NOTE: This needs to be included *after* windows.h.
+ #include <sddl.h>
