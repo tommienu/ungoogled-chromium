@@ -1,0 +1,24 @@
+Index: src/third_party/ungoogled/ungoogled_switches.cc
+===================================================================
+--- src.orig/third_party/ungoogled/ungoogled_switches.cc
++++ src/third_party/ungoogled/ungoogled_switches.cc
+@@ -9,4 +9,7 @@ namespace switches {
+ // Enable fingerprinting deception for getClientRects and getBoundingClientRect
+ const char kFingerprintingClientRectsNoise[] = "fingerprinting-client-rects-noise";
+ 
++//
++const char kFingerprintingCanvasMeasureTextNoise[] = "fingerprinting-canvas-measure-text-noise";
++
+ }  // namespace switches
+Index: src/third_party/ungoogled/ungoogled_switches.h
+===================================================================
+--- src.orig/third_party/ungoogled/ungoogled_switches.h
++++ src/third_party/ungoogled/ungoogled_switches.h
+@@ -10,6 +10,7 @@
+ namespace switches {
+ 
+ extern const char kFingerprintingClientRectsNoise[];
++extern const char kFingerprintingCanvasMeasureTextNoise[];
+ 
+ }
+ 

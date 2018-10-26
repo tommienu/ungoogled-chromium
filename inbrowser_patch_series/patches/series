@@ -118,3 +118,4 @@ windows-fix-enum-conflict.patch
 safe_browsing-disable-incident-reporting.patch
 safe_browsing-disable-reporting-of-safebrowsing-over.patch
 003-inbrowser-initial-buildfixes.patch
+004-inbrowser-about_flags-buildfixes.patch
