@@ -22,3 +22,16 @@ Index: src/third_party/ungoogled/ungoogled_switches.h
  
  }
  
+Index: src/third_party/blink/renderer/modules/canvas/canvas2d/canvas_rendering_context_2d.cc
+===================================================================
+--- src.orig/third_party/blink/renderer/modules/canvas/canvas2d/canvas_rendering_context_2d.cc
++++ src/third_party/blink/renderer/modules/canvas/canvas2d/canvas_rendering_context_2d.cc
+@@ -781,7 +781,7 @@ TextMetrics* CanvasRenderingContext2D::m
+ 
+   // Scale text metrics if enabled
+   if (RuntimeEnabledFeatures::FingerprintingCanvasMeasureTextNoiseEnabled()) {
+-    textMetrics->Shuffle(canvas()->GetDocument().GetNoiseFactorX())
++    textMetrics->Shuffle(canvas()->GetDocument().GetNoiseFactorX());
+   }
+ 
+   return textMetrics;
