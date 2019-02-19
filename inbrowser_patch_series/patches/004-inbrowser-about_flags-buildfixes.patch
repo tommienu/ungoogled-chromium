@@ -1,0 +1,50 @@
+Index: src/third_party/ungoogled/ungoogled_switches.cc
+===================================================================
+--- src.orig/third_party/ungoogled/ungoogled_switches.cc
++++ src/third_party/ungoogled/ungoogled_switches.cc
+@@ -9,4 +9,7 @@ namespace switches {
+ // Enable fingerprinting deception for getClientRects and getBoundingClientRect
+ const char kFingerprintingClientRectsNoise[] = "fingerprinting-client-rects-noise";
+ 
++//
++const char kFingerprintingCanvasMeasureTextNoise[] = "fingerprinting-canvas-measure-text-noise";
++
+ }  // namespace switches
+Index: src/third_party/ungoogled/ungoogled_switches.h
+===================================================================
+--- src.orig/third_party/ungoogled/ungoogled_switches.h
++++ src/third_party/ungoogled/ungoogled_switches.h
+@@ -10,6 +10,7 @@
+ namespace switches {
+ 
+ extern const char kFingerprintingClientRectsNoise[];
++extern const char kFingerprintingCanvasMeasureTextNoise[];
+ 
+ }
+ 
+Index: src/third_party/blink/renderer/modules/canvas/canvas2d/canvas_rendering_context_2d.cc
+===================================================================
+--- src.orig/third_party/blink/renderer/modules/canvas/canvas2d/canvas_rendering_context_2d.cc
++++ src/third_party/blink/renderer/modules/canvas/canvas2d/canvas_rendering_context_2d.cc
+@@ -781,7 +781,7 @@ TextMetrics* CanvasRenderingContext2D::m
+ 
+   // Scale text metrics if enabled
+   if (RuntimeEnabledFeatures::FingerprintingCanvasMeasureTextNoiseEnabled()) {
+-    textMetrics->Shuffle(canvas()->GetDocument().GetNoiseFactorX())
++    textMetrics->Shuffle(canvas()->GetDocument().GetNoiseFactorX());
+   }
+ 
+   return textMetrics;
+Index: src/third_party/blink/renderer/platform/exported/web_runtime_features.cc
+===================================================================
+--- src.orig/third_party/blink/renderer/platform/exported/web_runtime_features.cc
++++ src/third_party/blink/renderer/platform/exported/web_runtime_features.cc
+@@ -529,7 +529,7 @@ void WebRuntimeFeatures::EnableFingerpri
+ }
+ 
+ void WebRuntimeFeatures::EnableFingerprintingCanvasMeasureTextNoise(bool enable) {
+-  RuntimeEnabledFeatures::SetFingerprintingCanvasMeasureTextNoise(enable);
++  RuntimeEnabledFeatures::SetFingerprintingCanvasMeasureTextNoiseEnabled(enable);
+ }
+ 
+ }  // namespace blink
